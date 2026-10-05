@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import './index.css';
+import PrivacyPolicy from './PrivacyPolicy';
 
-function App() {
+function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -129,6 +131,7 @@ function App() {
               <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Features</a>
               <a href="#screenshots" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Screenshots</a>
               <a href="#download" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Download</a>
+              <Link to="/privacy" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Privacy</Link>
             </div>
             <div className="sm:hidden">
               <button
@@ -157,6 +160,7 @@ function App() {
             <a href="#features" onClick={toggleMenu} className="block rounded-lg px-3 py-2 text-slate-700 dark:text-slate-200 hover:bg-black/5 dark:hover:bg-white/10">Features</a>
             <a href="#screenshots" onClick={toggleMenu} className="mt-1 block rounded-lg px-3 py-2 text-slate-700 dark:text-slate-200 hover:bg-black/5 dark:hover:bg-white/10">Screenshots</a>
             <a href="#download" onClick={toggleMenu} className="mt-1 block rounded-lg px-3 py-2 text-slate-700 dark:text-slate-200 hover:bg-black/5 dark:hover:bg-white/10">Download</a>
+            <Link to="/privacy" onClick={toggleMenu} className="mt-1 block rounded-lg px-3 py-2 text-slate-700 dark:text-slate-200 hover:bg-black/5 dark:hover:bg-white/10">Privacy Policy</Link>
           </div>
         </div>
       )}
@@ -337,12 +341,21 @@ function App() {
         <div className="mx-auto max-w-6xl text-center text-sm text-slate-500 dark:text-slate-400">
           <p>&copy; {new Date().getFullYear()} ExpenseGauge. All rights reserved.</p>
           <p className="mt-2">
-            <a href="#" className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors mx-2">Privacy Policy</a> |
+            <Link to="/privacy" className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors mx-2">Privacy Policy</Link> |
             <a href="#" className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors mx-2">Terms of Service</a>
           </p>
         </div>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+    </Routes>
   );
 }
 
