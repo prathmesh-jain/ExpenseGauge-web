@@ -109,8 +109,8 @@ export default function LandingPage() {
     return (
         <>
             <SEO
-                title="ExpenseGauge | Personal Expense Tracker"
-                description="Track daily expenses, organize spending by category, and manage your personal finances with ExpenseGauge."
+                title="ExpenseGauge | Personal Expense Tracker & Expense Management"
+                description="Manage your personal finances with ExpenseGauge, a personal expense tracker for recording daily expenses, organizing transactions by category, managing multiple accounts and balances, monitoring spending trends, and reviewing monthly financial insights. Track expenses on the go, with offline request queuing and automatic synchronization when your connection returns."
                 path="/"
             />
             <div className={`min-h-screen ${isDarkMode ? "dark" : ""} bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans`}>
