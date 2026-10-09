@@ -23,7 +23,7 @@ const router = createBrowserRouter(routes, {
 })
 
 hydrateRoot(
-  document.getElementById('root')!,
+  document.querySelector('#app')!,
   <StrictMode>
     <UnheadProvider value={head}>
       <RouterProvider router={router} />
