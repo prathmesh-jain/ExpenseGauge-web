@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import SEO from './SEO';
 
 function PrivacyPolicy() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -23,10 +24,14 @@ function PrivacyPolicy() {
 
   return (
     <div
-      className={`min-h-screen ${
-        isDarkMode ? 'dark' : ''
-      } bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans`}
+      className={`min-h-screen ${isDarkMode ? 'dark' : ''
+        } bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans`}
     >
+      <SEO
+        title="Privacy Policy | ExpenseGauge"
+        description="Read the ExpenseGauge privacy policy to understand how your information is collected, used, and protected."
+        path="/privacy"
+      />
       {/* Navbar */}
       <nav className="sticky top-0 z-50 border-b border-black/5 dark:border-white/10 bg-white/80 dark:bg-slate-950/70 backdrop-blur supports-backdrop-filter:bg-white/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5">
