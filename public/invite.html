@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join a group on ExpenseGauge</title>
+  <meta name="description" content="You've been invited to split expenses in a group on ExpenseGauge." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+
+  <!-- Link previews (WhatsApp, Telegram, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ExpenseGauge" />
+  <meta property="og:title" content="You're invited to a group on ExpenseGauge" />
+  <meta property="og:description" content="Tap to join, add shared expenses and settle up with fewer payments." />
+  <meta property="og:image" content="https://expensegauge.prathmeshjain.in/expensegauge.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #4f46e5;
+      --accent-hover: #6366f1;
+      --accent-soft: #eef2ff;
+      --accent-text: #4338ca;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1120;
+        --card: #111827;
+        --border: #1f2937;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --accent: #6366f1;
+        --accent-hover: #818cf8;
+        --accent-soft: rgba(99, 102, 241, 0.12);
+        --accent-text: #a5b4fc;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+    .logo { width: 64px; height: 64px; border-radius: 16px; }
+    .eyebrow {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    h1 { margin: 12px 0 6px; font-size: 22px; line-height: 1.3; word-break: break-word; }
+    .sub { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .code-box {
+      margin: 20px 0;
+      padding: 12px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .code-label { font-size: 12px; color: var(--muted); text-align: left; }
+    .code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-align: left;
+    }
+    .copy {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-secondary { border: 1px solid var(--border); color: var(--text); }
+    .steps { margin: 22px 0 0; padding: 0; list-style: none; text-align: left; }
+    .steps li { display: flex; gap: 10px; font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.45; }
+    .num {
+      flex: none;
+      width: 20px; height: 20px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hidden { display: none; }
+    .home { display: inline-block; margin-top: 20px; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="/icon.png" alt="ExpenseGauge" width="64" height="64" />
+
+    <div id="valid">
+      <span class="eyebrow">Group invite</span>
+      <h1 id="title">You're invited to a group</h1>
+      <p class="sub" id="subtitle">Join to add shared expenses, see who owes whom and settle up with fewer payments.</p>
+
+      <div class="code-box">
+        <div>
+          <div class="code-label">Invite code</div>
+          <div class="code" id="code">------</div>
+        </div>
+        <button class="copy" id="copy" type="button">Copy</button>
+      </div>
+
+      <a class="btn btn-primary" id="open" href="#">Open in ExpenseGauge</a>
+      <a class="btn btn-secondary" id="store" href="#">Get it on Google Play</a>
+
+      <ol class="steps">
+        <li><span class="num">1</span><span>Install ExpenseGauge and sign in.</span></li>
+        <li><span class="num">2</span><span>Tap this invite link again, or go to Groups &rarr; Join with code.</span></li>
+      </ol>
+    </div>
+
+    <div id="invalid" class="hidden">
+      <h1>This invite link isn't valid</h1>
+      <p class="sub">Ask the person who invited you to share the link again.</p>
+      <a class="btn btn-primary" href="/">Go to ExpenseGauge</a>
+    </div>
+
+    <a class="home" href="/">expensegauge.prathmeshjain.in</a>
+  </main>
+
+  <script>
+    (function () {
+      var PACKAGE = 'com.expensegauge';
+      var API = 'https://expensegauge-backend.prathmeshjain.in/api/v1/public/invite/';
+
+      var match = window.location.pathname.match(/^\/invite\/([A-Za-z0-9]{4,16})\/?$/);
+      var code = match ? match[1].toUpperCase() : null;
+
+      if (!code) {
+        document.getElementById('valid').classList.add('hidden');
+        document.getElementById('invalid').classList.remove('hidden');
+        return;
+      }
+
+      var storeUrl = 'https://play.google.com/store/apps/details?id=' + PACKAGE +
+        '&referrer=' + encodeURIComponent('invite_code=' + code);
+      var isAndroid = /android/i.test(navigator.userAgent);
+      // If App Links didn't open the app directly (e.g. inside an in-app browser),
+      // this intent opens the app when installed and falls back to the Play Store.
+      var openUrl = isAndroid
+        ? 'intent://invite/' + code + '#Intent;scheme=expensegauge;package=' + PACKAGE +
+          ';S.browser_fallback_url=' + encodeURIComponent(storeUrl) + ';end'
+        : storeUrl;
+
+      document.getElementById('code').textContent = code;
+      document.getElementById('open').href = openUrl;
+      document.getElementById('store').href = storeUrl;
+
+      var copyBtn = document.getElementById('copy');
+      copyBtn.addEventListener('click', function () {
+        var done = function () {
+          copyBtn.textContent = 'Copied';
+          setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(done, function () {});
+        }
+      });
+
+      // Group preview. Shows the generic text if the request fails.
+      if (window.fetch) {
+        fetch(API + encodeURIComponent(code))
+          .then(function (res) { return res.ok ? res.json() : null; })
+          .then(function (body) {
+            var data = body && (body.data || body);
+            if (!data || !data.groupName) return;
+            document.getElementById('title').textContent = 'Join "' + data.groupName + '"';
+            var parts = [];
+            if (data.invitedBy) parts.push(data.invitedBy + ' invited you');
+            if (data.memberCount) parts.push(data.memberCount + (data.memberCount === 1 ? ' member' : ' members'));
+            if (parts.length) {
+              document.getElementById('subtitle').textContent =
+                parts.join(' · ') + '. Join to add shared expenses and settle up.';
+            }
+            document.title = 'Join ' + data.groupName + ' on ExpenseGauge';
+          })
+          .catch(function () {});
+      }
+    })();
+  </script>
+</body>
+</html>

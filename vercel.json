@@ -1,5 +1,22 @@
 {
+  "headers": [
+    {
+      "source": "/.well-known/assetlinks.json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/invite/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/invite/:code",
+      "destination": "/invite.html"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
