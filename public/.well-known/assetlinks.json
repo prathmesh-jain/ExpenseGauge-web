@@ -5,7 +5,7 @@
       "namespace": "android_app",
       "package_name": "com.expensegauge",
       "sha256_cert_fingerprints": [
-        "5D:29:A3:E6:2C:AE:01:7A:6D:59:64:BC:52:67:29:11:B8:E2:DB:C6"
+        "65:FF:5E:E9:1A:65:2B:3D:4A:A5:5D:36:CF:2C:DA:6B:73:DD:CD:F8:98:44:4D:02:9B:5E:88:7B:C8:14:14:08"
       ]
     }
   },
@@ -15,7 +15,7 @@
       "namespace": "android_app",
       "package_name": "com.expensegauge.dev",
       "sha256_cert_fingerprints": [
-        "5A:78:6D:04:82:B9:59:60:D6:7C:FB:60:63:FE:2D:87:E4:F7:8C:5F"
+        "65:FF:5E:E9:1A:65:2B:3D:4A:A5:5D:36:CF:2C:DA:6B:73:DD:CD:F8:98:44:4D:02:9B:5E:88:7B:C8:14:14:08"
       ]
     }
   }
