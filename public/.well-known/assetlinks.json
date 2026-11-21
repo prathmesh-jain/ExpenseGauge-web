@@ -5,7 +5,7 @@
       "namespace": "android_app",
       "package_name": "com.expensegauge",
       "sha256_cert_fingerprints": [
-        "REPLACE_WITH_PLAY_APP_SIGNING_KEY_SHA256"
+        "5D:29:A3:E6:2C:AE:01:7A:6D:59:64:BC:52:67:29:11:B8:E2:DB:C6"
       ]
     }
   },
@@ -15,7 +15,7 @@
       "namespace": "android_app",
       "package_name": "com.expensegauge.dev",
       "sha256_cert_fingerprints": [
-        "REPLACE_WITH_EAS_DEV_BUILD_SHA256"
+        "5A:78:6D:04:82:B9:59:60:D6:7C:FB:60:63:FE:2D:87:E4:F7:8C:5F"
       ]
     }
   }
